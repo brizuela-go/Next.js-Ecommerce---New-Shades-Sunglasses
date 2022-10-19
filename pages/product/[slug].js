@@ -65,6 +65,7 @@ const ProductDetails = ({ product, products }) => {
             {image?.map((img, i) => (
               <img
                 src={urlFor(img)}
+                key={i}
                 className={
                   i == index ? "small-image selected-image" : "small-image"
                 }
@@ -129,8 +130,8 @@ const ProductDetails = ({ product, products }) => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                {Details?.map((detail) => (
-                  <li>
+                {Details?.map((detail, i) => (
+                  <li key={i}>
                     <b>{detail.substr(0, detail.indexOf(":") + 1)}</b>
                     {detail.substr(detail.indexOf(":") + 1)}
                   </li>
