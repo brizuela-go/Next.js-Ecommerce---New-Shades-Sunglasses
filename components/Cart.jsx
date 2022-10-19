@@ -1,44 +1,73 @@
-import React, { useRef } from 'react';
-import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
-import toast from 'react-hot-toast';
+import React, { useRef, useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineLeft,
+  AiOutlineShopping,
+} from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
+import toast from "react-hot-toast";
 
-import { useStateContext } from '../context/StateContext';
-import { urlFor } from '../lib/client';
-import getStripe from '../lib/getStripe';
+import { useStateContext } from "../context/StateContext";
+import { urlFor } from "../lib/client";
+import getStripe from "../lib/getStripe";
+
+import { PayPalButton } from "react-paypal-button-v2";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuanitity,
+    onRemove,
+  } = useStateContext();
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(cartItems),
     });
 
-    if(response.statusCode === 500) return;
-    
+    if (response.statusCode === 500) return;
+
     const data = await response.json();
 
-    toast.loading('Redirecting...');
+    toast.loading("Redirecting...");
 
     stripe.redirectToCheckout({ sessionId: data.id });
-  }
+  };
+
+  const script = document.createElement("script");
+  useEffect(() => {
+    if (window.paypal) {
+      setScriptLoaded(true);
+      return;
+    }
+    script.type = "text/javascript";
+    script.src = `https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}`;
+    script.async = true;
+    script.onload = () => setScriptLoaded(true);
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
         <button
-        type="button"
-        className="cart-heading"
-        onClick={() => setShowCart(false)}>
+          type="button"
+          className="cart-heading"
+          onClick={() => setShowCart(false)}
+        >
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
@@ -61,35 +90,53 @@ const Cart = () => {
         )}
 
         <div className="product-container">
-          {cartItems.length >= 1 && cartItems.map((item) => (
-            <div className="product" key={item._id}>
-              <img src={urlFor(item?.image[0])} className="cart-product-image" />
-              <div className="item-desc">
-                <div className="flex top">
-                  <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
-                </div>
-                <div className="flex bottom">
-                  <div>
-                  <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec') }>
-                    <AiOutlineMinus />
-                    </span>
-                    <span className="num" onClick="">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc') }><AiOutlinePlus /></span>
-                  </p>
+          {cartItems.length >= 1 &&
+            cartItems.map((item) => (
+              <div className="product" key={item._id}>
+                <img
+                  src={urlFor(item?.image[0])}
+                  className="cart-product-image"
+                />
+                <div className="item-desc">
+                  <div className="flex top">
+                    <h5>{item.name}</h5>
+                    <h4>${item.price}</h4>
                   </div>
-                  <button
-                    type="button"
-                    className="remove-item"
-                    onClick={() => onRemove(item)}
-                  >
-                    <TiDeleteOutline />
-                  </button>
+                  <div className="flex bottom">
+                    <div>
+                      <p className="quantity-desc">
+                        <span
+                          className="minus"
+                          onClick={() =>
+                            toggleCartItemQuanitity(item._id, "dec")
+                          }
+                        >
+                          <AiOutlineMinus />
+                        </span>
+                        <span className="num" onClick="">
+                          {item.quantity}
+                        </span>
+                        <span
+                          className="plus"
+                          onClick={() =>
+                            toggleCartItemQuanitity(item._id, "inc")
+                          }
+                        >
+                          <AiOutlinePlus />
+                        </span>
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => onRemove(item)}
+                    >
+                      <TiDeleteOutline />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
@@ -99,14 +146,27 @@ const Cart = () => {
             </div>
             <div className="btn-container">
               <button type="button" className="btn" onClick={handleCheckout}>
-                Pay with Stripe
+                Pagar ahora
               </button>
             </div>
+            {scriptLoaded ? (
+              <PayPalButton
+                style={{ color: "blue", layout: "horizontal" }}
+                amount={(totalPrice + 50) / 20}
+                onSuccess={(details, data) => {
+                  toast.success("Payment successful");
+                  console.log("details", details);
+                  console.log("data", data);
+                }}
+              />
+            ) : (
+              <span>cargando...</span>
+            )}
           </div>
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

@@ -28,13 +28,13 @@ const ProductDetails = ({ product, products }) => {
   return (
     <>
       <Head>
-        <title>New Shades | {name}</title>
-        <meta charset="utf-8" />
+        <title>{name}</title>
+        <meta charSet="utf-8" />
         <meta name="description" content={description} />
         <meta name="image" content={urlFor(image && image[index])} />
-        <meta itemprop="name" content={`Las Salsas | ${name}`} />
-        <meta itemprop="description" content={description} />
-        <meta itemprop="image" content={urlFor(image && image[index])} />
+        <meta itemProp="name" content={`Las Salsas | ${name}`} />
+        <meta itemProp="description" content={description} />
+        <meta itemProp="image" content={urlFor(image && image[index])} />
         <meta property="og:title" content={`Las Salsas | ${name}`} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={urlFor(image && image[index])} />
