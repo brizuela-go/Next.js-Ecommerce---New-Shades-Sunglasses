@@ -160,7 +160,7 @@ const Cart = () => {
                 }}
               />
             ) : (
-              <span>cargando...</span>
+              <span>cargando</span>
             )}
           </div>
         )}
