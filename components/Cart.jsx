@@ -8,6 +8,7 @@ import {
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
@@ -26,6 +27,7 @@ const Cart = () => {
     onRemove,
   } = useStateContext();
   const [scriptLoaded, setScriptLoaded] = useState(false);
+  const router = useRouter();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
@@ -155,6 +157,9 @@ const Cart = () => {
                 amount={(totalPrice + 50) / 20}
                 onSuccess={(details, data) => {
                   toast.success("Payment successful");
+                  // redirect to success page next js route
+                  router.push("/success");
+                  setShowCart(false);
                   console.log("details", details);
                   console.log("data", data);
                 }}
