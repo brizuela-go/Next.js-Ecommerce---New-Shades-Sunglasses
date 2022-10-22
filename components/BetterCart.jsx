@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import Link from "next/link";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 

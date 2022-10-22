@@ -15,10 +15,8 @@ const Home = ({ products, bannerData }) => (
         Beautiful UI components, crafted with Tailwind CSS.
       </h2>
     </div>
-    <div className="products-container">
-      {products?.map((product) => (
-        <Product key={product._id} product={product} />
-      ))}
+    <div>
+      <Product key={products._id} products={products} />
     </div>
     <FooterBanner footerBanner={bannerData && bannerData[0]} />
   </div>

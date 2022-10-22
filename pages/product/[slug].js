@@ -34,6 +34,7 @@ const ProductDetails = ({ product, products }) => {
     <>
       <Head>
         <title>{name}</title>
+        <link rel="icon" href={urlFor(image[0])} />
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
         <meta name="image" content={urlFor(image && image[0])} />
@@ -62,19 +63,21 @@ const ProductDetails = ({ product, products }) => {
         <div>
           <div className="w-96 ">
             <img
+              alt={name}
               src={urlFor(image && image[index])}
               className="product-detail-image shadow-xl"
             />
           </div>
-          <div className="flex mt-6">
+          <div className="flex mt-6 space-x-4">
             {image?.map((img, i) => (
               <img
                 src={urlFor(img)}
+                alt={name}
                 key={i}
                 className={
                   i == index
-                    ? "small-image selected-image ml-3 shadow-lg"
-                    : "small-image ml-3 shadow-lg"
+                    ? "small-image selected-image shadow-lg"
+                    : "small-image shadow-lg"
                 }
                 onMouseEnter={() => setIndex(i)}
               ></img>
@@ -153,7 +156,7 @@ const ProductDetails = ({ product, products }) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>Detalles</Typography>
+              <h4>Detalles</h4>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -170,11 +173,9 @@ const ProductDetails = ({ product, products }) => {
       </div>
       <div className="maylike-products-wrapper">
         <h2>Productos que te pueden interesar</h2>
-        <div className="marquee">
-          <div className="maylike-products-container track">
-            {products?.map((product) => (
-              <Product key={product._id} product={product} />
-            ))}
+        <div className="">
+          <div className="">
+            <Product key={product._id} products={products} />
           </div>
         </div>
       </div>
