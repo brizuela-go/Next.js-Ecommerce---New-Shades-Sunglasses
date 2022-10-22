@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 import { client, urlFor } from "../../lib/client";
 import { useStateContext } from "../../context/StateContext";
@@ -12,7 +11,6 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -158,14 +156,12 @@ const ProductDetails = ({ product, products }) => {
               <h4>Detalles</h4>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                {Details?.map((detail, i) => (
-                  <li key={i}>
-                    <b>{detail.substr(0, detail.indexOf(":") + 1)}</b>
-                    {detail.substr(detail.indexOf(":") + 1)}
-                  </li>
-                ))}
-              </Typography>
+              {Details?.map((detail, i) => (
+                <li key={i}>
+                  <b>{detail.substr(0, detail.indexOf(":") + 1)}</b>
+                  {detail.substr(detail.indexOf(":") + 1)}
+                </li>
+              ))}
             </AccordionDetails>
           </Accordion>
         </Container>

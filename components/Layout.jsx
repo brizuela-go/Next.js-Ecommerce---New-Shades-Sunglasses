@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <html lang="es" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css"></link>
         <title>New Shades</title>
         <link

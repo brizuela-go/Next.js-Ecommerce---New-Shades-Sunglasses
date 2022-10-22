@@ -2,7 +2,7 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    locales: ["es"],
+    locales: ["es", "en"],
     defaultLocale: "es",
   },
   images: {
