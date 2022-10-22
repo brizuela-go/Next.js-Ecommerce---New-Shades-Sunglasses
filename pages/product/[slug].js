@@ -36,26 +36,26 @@ const ProductDetails = ({ product, products }) => {
         <title>{name}</title>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
-        <meta name="image" content={urlFor(image && image[index])} />
-        <meta itemProp="name" content={`Las Salsas | ${name}`} />
+        <meta name="image" content={urlFor(image && image[0])} />
+        <meta itemProp="name" content={`New Shades | ${name}`} />
         <meta itemProp="description" content={description} />
-        <meta itemProp="image" content={urlFor(image && image[index])} />
-        <meta property="og:title" content={`Las Salsas | ${name}`} />
+        <meta itemProp="image" content={urlFor(image && image[0])} />
+        <meta property="og:title" content={`New Shades | ${name}`} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={urlFor(image && image[index])} />
-        {/* <meta
+        <meta property="og:image" content={urlFor(image && image[0])} />
+        <meta
           property="og:url"
-          content={"https://las-salsas.vercel.app/recipes/" + slug}
-        /> */}
-        <meta property="og:site_name" content={`Las Salsas | ${name}`} />
+          content={"https://new-shades-sunglasses.vercel.app/product/" + slug}
+        />
+        <meta property="og:site_name" content={`New Shades | ${name}`} />
         <meta property="og:locale" content="es_MX" />
         <meta property="og:type" content="website" />
         <meta property="twitter:card" content="summary" />
-        <meta property="twitter:title" content={`Las Salsas | ${name}`} />
+        <meta property="twitter:title" content={`New Shades | ${name}`} />
         <meta property="twitter:description" content={description} />
         <meta
           property="twitter:image:src"
-          content={urlFor(image && image[index])}
+          content={urlFor(image && image[0])}
         />
       </Head>
       <div className="product-detail-container">
@@ -130,7 +130,7 @@ const ProductDetails = ({ product, products }) => {
               variant="outlined"
               color="error"
               onClick={() => onAdd(product, qty)}
-              className="lg:hover:shadow-xl  lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
+              className="lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
             >
               Añadir al Carrito
             </Button>
@@ -138,7 +138,7 @@ const ProductDetails = ({ product, products }) => {
               variant="contained"
               color="error"
               onClick={handleBuyNow}
-              className="bg-red-600 ml-4 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition duration-300 ease-in-out"
+              className=" lg:ml-4 ml-4 md:ml-4 bg-red-600 lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
             >
               Comprar ya
             </Button>
