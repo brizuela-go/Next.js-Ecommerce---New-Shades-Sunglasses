@@ -125,7 +125,7 @@ const ProductDetails = ({ product, products }) => {
               </ButtonGroup>
             </div>
           </div>
-          <div className="flex mt-10">
+          <div className="flex mt-10 space-x-4">
             <Button
               variant="outlined"
               color="error"
@@ -138,7 +138,7 @@ const ProductDetails = ({ product, products }) => {
               variant="contained"
               color="error"
               onClick={handleBuyNow}
-              className=" lg:ml-4 ml-4 md:ml-4 bg-red-600 lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
+              className="bg-red-600 lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
             >
               Comprar ya
             </Button>
