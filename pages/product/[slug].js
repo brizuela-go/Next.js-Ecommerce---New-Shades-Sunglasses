@@ -34,7 +34,6 @@ const ProductDetails = ({ product, products }) => {
     <>
       <Head>
         <title>{name}</title>
-        <link rel="icon" href={urlFor(image[0])} />
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
         <meta name="image" content={urlFor(image && image[0])} />
