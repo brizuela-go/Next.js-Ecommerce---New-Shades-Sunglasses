@@ -1,4 +1,6 @@
-/* insert Inter var font */
+/* insert poppins var font */
+@import url('https://rsms.me/inter/inter.css');
+
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -13,6 +15,7 @@ body, * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Inter var', sans-serif;
 }
 ::-webkit-scrollbar {
   width: 0px;
