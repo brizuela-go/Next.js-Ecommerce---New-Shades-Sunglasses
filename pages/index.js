@@ -9,7 +9,7 @@ const Home = ({ products, bannerData }) => (
   <div>
     <BetterCart />
     <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-    <Categories />;
+    <Categories />
     <div className="products-heading">
       <h2 className=" text-black">
         Beautiful UI components, crafted with Tailwind CSS.
