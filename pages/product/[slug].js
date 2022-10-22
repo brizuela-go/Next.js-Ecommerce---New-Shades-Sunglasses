@@ -12,6 +12,11 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Button from "@mui/material/Button";
 
 import Head from "next/head";
 
@@ -55,19 +60,21 @@ const ProductDetails = ({ product, products }) => {
       </Head>
       <div className="product-detail-container">
         <div>
-          <div className="image-container">
+          <div className="w-96 ">
             <img
               src={urlFor(image && image[index])}
-              className="product-detail-image"
+              className="product-detail-image shadow-xl"
             />
           </div>
-          <div className="small-images">
+          <div className="flex mt-6">
             {image?.map((img, i) => (
               <img
                 src={urlFor(img)}
                 key={i}
                 className={
-                  i == index ? "small-image selected-image" : "small-image"
+                  i == index
+                    ? "small-image selected-image ml-3 shadow-lg"
+                    : "small-image ml-3 shadow-lg"
                 }
                 onMouseEnter={() => setIndex(i)}
               ></img>
@@ -75,7 +82,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
         <div className="product-detail-desc">
-          <h1>{name}</h1>
+          <h1 className="text-black font-bold text-4xl">{name}</h1>
           <div className="reviews">
             <div>
               <Rating
@@ -93,28 +100,48 @@ const ProductDetails = ({ product, products }) => {
           <p className="price">${price}</p>
           <div className="quantity">
             <h3>Cantidad</h3>
-            <p className="quantity-desc">
-              <span className="minus" onClick={decQty}>
-                <AiOutlineMinus />
-              </span>
-              <span className="num">{qty}</span>
-              <span className="plus" onClick={incQty}>
-                <AiOutlinePlus />
-              </span>
-            </p>
+            <div className="flex justify-around  ">
+              <ButtonGroup
+                variant="outlined"
+                color="error"
+                aria-label="outlined button group"
+              >
+                {qty > 1 ? (
+                  <Button size="small" aria-label="add" onClick={decQty}>
+                    <RemoveIcon />
+                  </Button>
+                ) : (
+                  <Button size="small" disabled aria-label="add">
+                    <RemoveIcon />
+                  </Button>
+                )}
+                <Button disabled className="disabled-text">
+                  {qty}
+                </Button>
+
+                <Button size="small" aria-label="add" onClick={incQty}>
+                  <AddIcon />
+                </Button>
+              </ButtonGroup>
+            </div>
           </div>
-          <div className="buttons">
-            <button
-              type="button"
-              className="add-to-cart"
+          <div className="flex mt-10">
+            <Button
+              variant="outlined"
+              color="error"
               onClick={() => onAdd(product, qty)}
+              className="lg:hover:shadow-xl  lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
             >
               Añadir al Carrito
-            </button>
-
-            <button type="button" className="buy-now" onClick={handleBuyNow}>
+            </Button>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={handleBuyNow}
+              className="bg-red-600 ml-4 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition duration-300 ease-in-out"
+            >
               Comprar ya
-            </button>
+            </Button>
           </div>
         </div>
       </div>

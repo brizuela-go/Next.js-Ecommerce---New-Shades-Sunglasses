@@ -1,13 +1,18 @@
-/* insert poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* insert Inter var font */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v3/2sDdZG5JnZLfkc1SiE0jRUG0AqU.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 html,
 body, * {
   padding: 0;
   margin: 0;
-  font-family: "Poppins";
   box-sizing: border-box;
-
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -18,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+.lmao {
+  width: 450px!important;
+}
+
 .main-container{
 max-width: 1400px; 
 margin: auto;
@@ -26,6 +35,10 @@ width: 100%;
 }
 .layout{
   padding: 10px;
+}
+
+.disabled-text{
+  color: #000!important;
 }
 
 .navbar-container{
@@ -81,9 +94,7 @@ width: 100%;
   border: none;
   background-color: transparent;
 }
-.cart-icon:hover{
-  transform: scale(1.1,1.1);
-}
+
 .cart-item-qty{
   position: absolute;
   right: -8px;
@@ -775,3 +786,7 @@ margin-top: 160px;
   margin: auto;
 }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

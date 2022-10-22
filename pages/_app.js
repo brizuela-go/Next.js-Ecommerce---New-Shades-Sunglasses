@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Poppins",
+    fontFamily: "Inter var",
   },
 });
 
