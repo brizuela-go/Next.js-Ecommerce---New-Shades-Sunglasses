@@ -17,7 +17,6 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 
 import Head from "next/head";
-import Image from "next/image";
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, Details, price, description, slug } = product;
@@ -60,15 +59,9 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="w-96 ">
-            <Image
+            <img
               alt={name}
-              src={`https://cdn.sanity.io/images/w0zrwraf/production/${urlFor(
-                image && image[index]
-              )
-                ["options"]["source"]["asset"]["_ref"].substring(6)
-                .replace(/-png/, ".png")}`}
-              width={500}
-              height={500}
+              src={urlFor(image && image[index])}
               className="product-detail-image shadow-xl"
             />
           </div>

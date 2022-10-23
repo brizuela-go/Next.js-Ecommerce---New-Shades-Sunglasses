@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const HeroBanner = ({ heroBanner }) => {
   return (
@@ -39,10 +38,8 @@ const HeroBanner = ({ heroBanner }) => {
               </div>
               <div className="inline lg:hidden md:hidden">
                 <div className="h-80 w-80 overflow-hidden rounded-lg shadow-xl">
-                  <Image
+                  <img
                     src="https://s.alicdn.com/@sc04/kf/H8a22eb6385f842cca929b1435290824fQ.jpg_960x960.jpg"
-                    width={600}
-                    height={600}
                     alt="New Shades"
                     className="h-full w-full object-cover object-center"
                   />

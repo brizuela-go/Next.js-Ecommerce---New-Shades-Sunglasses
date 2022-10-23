@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 import { urlFor } from "../lib/client";
-import Image from "next/image";
 
 const Product = ({ products }) => {
   return (
@@ -15,15 +14,9 @@ const Product = ({ products }) => {
             <Link href={`/product/${product.slug.current}`} key={product._id}>
               <button className="group" type="button">
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-newshadesbox xl:aspect-w-7 xl:aspect-h-8 shadow-xl">
-                  <Image
+                  <img
                     loading="lazy"
-                    src={`https://cdn.sanity.io/images/w0zrwraf/production/${urlFor(
-                      product.image && product.image[0]
-                    )
-                      ["options"]["source"]["asset"]["_ref"].substring(6)
-                      .replace(/-png/, ".png")}`}
-                    width={250}
-                    height={250}
+                    src={urlFor(product.image[0])}
                     alt={product.name}
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
                   />

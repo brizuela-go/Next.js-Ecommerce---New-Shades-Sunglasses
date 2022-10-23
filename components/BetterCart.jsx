@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import Link from "next/link";
-import Image from "next/image";
 
 import { useRouter } from "next/router";
 
@@ -156,16 +155,8 @@ const BetterCart = () => {
                               {cartItems.map((product) => (
                                 <li key={product._id} className="flex py-6">
                                   <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                    <Image
-                                      src={`https://cdn.sanity.io/images/w0zrwraf/production/${urlFor(
-                                        image && image[0]
-                                      )
-                                        ["options"]["source"]["asset"][
-                                          "_ref"
-                                        ].substring(6)
-                                        .replace(/-png/, ".png")}`}
-                                      width={250}
-                                      height={250}
+                                    <img
+                                      src={urlFor(product?.image[0])}
                                       alt={product.name}
                                       className="h-full w-full object-cover object-center"
                                     />
