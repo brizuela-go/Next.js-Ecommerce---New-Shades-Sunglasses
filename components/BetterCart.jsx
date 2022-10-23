@@ -13,15 +13,8 @@ import { useRouter } from "next/router";
 
 const BetterCart = () => {
   const cartRef = useRef();
-  const {
-    totalPrice,
-    totalQuantities,
-    cartItems,
-    setShowCart,
-    showCart,
-    toggleCartItemQuanitity,
-    onRemove,
-  } = useStateContext();
+  const { totalPrice, cartItems, setShowCart, showCart, onRemove } =
+    useStateContext();
 
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const router = useRouter();

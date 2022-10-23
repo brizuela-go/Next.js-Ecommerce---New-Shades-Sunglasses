@@ -9,7 +9,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -56,7 +55,7 @@ const ProductDetails = ({ product, products }) => {
           content={urlFor(image && image[0])}
         />
       </Head>
-      <div className="product-detail-container">
+      <section className="product-detail-container">
         <div>
           <div className="w-96 ">
             <img
@@ -99,7 +98,7 @@ const ProductDetails = ({ product, products }) => {
           <p align="justify">{description}</p>
           <p className="price">${price}</p>
           <div className="quantity">
-            <h3>Cantidad</h3>
+            <p>Cantidad</p>
             <div className="flex justify-around  ">
               <ButtonGroup
                 variant="outlined"
@@ -144,7 +143,7 @@ const ProductDetails = ({ product, products }) => {
             </Button>
           </div>
         </div>
-      </div>
+      </section>
       <div>
         <Container maxWidth="xl">
           <Accordion>
@@ -166,14 +165,14 @@ const ProductDetails = ({ product, products }) => {
           </Accordion>
         </Container>
       </div>
-      <div className="maylike-products-wrapper">
+      <section className="maylike-products-wrapper">
         <h2>Productos que te pueden interesar</h2>
         <div className="">
           <div className="">
             <Product key={product._id} products={products} />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

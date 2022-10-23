@@ -3,11 +3,9 @@ import React from "react";
 import { client } from "../lib/client";
 import { Product, FooterBanner, HeroBanner } from "../components";
 import Categories from "../components/Categories";
-import BetterCart from "../components/BetterCart";
 
 const Home = ({ products, bannerData }) => (
   <div>
-    <BetterCart />
     <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
     <Categories />
     <div className="products-heading">
@@ -15,9 +13,9 @@ const Home = ({ products, bannerData }) => (
         Beautiful UI components, crafted with Tailwind CSS.
       </h2>
     </div>
-    <div>
+    <section>
       <Product key={products._id} products={products} />
-    </div>
+    </section>
     <FooterBanner footerBanner={bannerData && bannerData[0]} />
   </div>
 );

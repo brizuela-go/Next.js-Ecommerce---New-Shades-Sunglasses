@@ -28,7 +28,7 @@ const Navbar = () => {
           </div>
         </button>
 
-        {<BetterCart />}
+        <BetterCart />
       </div>
     </nav>
   );

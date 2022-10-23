@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const HeroBanner = ({ heroBanner }) => {
   return (
-    <div className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-white">
       <div className="pt-16 sm:pb-40 lg:pt-40 lg:pb-48 pb-28">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
@@ -56,7 +56,7 @@ const HeroBanner = ({ heroBanner }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
