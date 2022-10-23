@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Typed from "react-typed";
 
 const HeroBanner = ({ heroBanner }) => {
   return (
@@ -10,9 +11,20 @@ const HeroBanner = ({ heroBanner }) => {
             <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
               New Shades
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the
-              harsh elements of a world that doesnt care if you live or die.
+            <p className="mt-4 text-lg text-gray-500 lg:text-xl">
+              Con su diseño minimalista y su estilo único, estos lentes de sol
+              polarizados con certificación UV:400, son adecuados para{" "}
+              <Typed
+                strings={[
+                  "cualquier ocasión.",
+                  "ciclistas.",
+                  "motociclistas.",
+                  "proteger tus ojos.",
+                ]}
+                typeSpeed={80}
+                backSpeed={100}
+                loop
+              />
             </p>
           </div>
           <div>
@@ -45,13 +57,11 @@ const HeroBanner = ({ heroBanner }) => {
                   />
                 </div>
               </div>
-
-              <a
-                href="#"
-                className="mt-6 lg:mt-0 inline-block rounded-md border border-transparent bg-red-600 py-3 px-8 text-center font-medium text-white hover:bg-red-700 hover:shadow-xl hover:-translate-y-2 hover:scale-105 transition duration-300 ease-in-out"
-              >
-                Shop Collection
-              </a>
+              <Link href="/product/black-and-red">
+                <button className="mt-6 lg:mt-0 inline-block rounded-md border border-transparent bg-red-600 py-3 px-8 text-center font-medium text-white hover:bg-red-700 lg:hover:shadow-xl lg:hover:-translate-y-2 transition duration-300 ease-in-out">
+                  Comprar ahora
+                </button>
+              </Link>
             </div>
           </div>
         </div>

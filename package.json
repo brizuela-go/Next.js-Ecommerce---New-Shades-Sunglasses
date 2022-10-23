@@ -30,6 +30,7 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "react-paypal-button-v2": "^2.6.3",
+    "react-typed": "^1.2.0",
     "sanity": "^2.33.2",
     "stripe": "^10.14.0"
   },
