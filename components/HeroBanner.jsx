@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
-import { urlFor } from "../lib/client";
+import Image from "next/image";
 
 const HeroBanner = ({ heroBanner }) => {
   return (
@@ -30,7 +29,7 @@ const HeroBanner = ({ heroBanner }) => {
                       <div className="w-96 overflow-hidden rounded-lg lg:ml-20 shadow-xl lmao">
                         <img
                           src="https://s.alicdn.com/@sc04/kf/H8a22eb6385f842cca929b1435290824fQ.jpg_960x960.jpg"
-                          alt=""
+                          alt="New Shades"
                           className="h-full w-full object-cover object-center"
                         />
                       </div>
@@ -40,9 +39,11 @@ const HeroBanner = ({ heroBanner }) => {
               </div>
               <div className="inline lg:hidden md:hidden">
                 <div className="h-80 w-80 overflow-hidden rounded-lg shadow-xl">
-                  <img
+                  <Image
                     src="https://s.alicdn.com/@sc04/kf/H8a22eb6385f842cca929b1435290824fQ.jpg_960x960.jpg"
-                    alt=""
+                    width={600}
+                    height={600}
+                    alt="New Shades"
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
