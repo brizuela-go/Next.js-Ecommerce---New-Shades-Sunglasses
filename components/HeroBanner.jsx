@@ -58,7 +58,7 @@ const HeroBanner = ({ heroBanner }) => {
                 </div>
               </div>
               <Link href="/product/black-and-red">
-                <button className="mt-6 lg:mt-0 inline-block rounded-md border border-transparent bg-red-600 py-3 px-8 text-center font-medium text-white hover:bg-red-700 lg:hover:shadow-xl lg:hover:-translate-y-2 transition duration-300 ease-in-out">
+                <button className="mt-6 lg:mt-0 inline-block rounded-md border border-transparent bg-red-600 py-3 px-24 lg:px-8 md:px-8 text-center font-medium text-white hover:bg-red-700 lg:hover:shadow-xl lg:hover:-translate-y-2 transition duration-300 ease-in-out">
                   Comprar ahora
                 </button>
               </Link>

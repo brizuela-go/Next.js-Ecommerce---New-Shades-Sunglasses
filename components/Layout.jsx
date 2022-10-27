@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
       <header>
         <Navbar />
       </header>
-      <main className="main-container">{children}</main>
+      <main className="container mx-auto lg:px-28 relative">{children}</main>
       <footer>
         <Footer />
       </footer>

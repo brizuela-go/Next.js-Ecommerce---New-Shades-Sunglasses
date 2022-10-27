@@ -9,7 +9,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Container from "@mui/material/Container";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -55,9 +54,9 @@ const ProductDetails = ({ product, products }) => {
           content={urlFor(image && image[0])}
         />
       </Head>
-      <section className="product-detail-container">
+      <section className="product-detail-container lg:px-0 md:px-0 sm:px-0 px-3 lg:pr-6">
         <div>
-          <div className="w-96 ">
+          <div className>
             <img
               alt={name}
               src={urlFor(image && image[index])}
@@ -81,7 +80,9 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
         <div className="product-detail-desc">
-          <h1 className="text-black font-bold text-4xl">{name}</h1>
+          <h1 className="text-black font-bold text-4xl lg:mt-0 md:mt-0 sm:mt-0 mt-10">
+            {name}
+          </h1>
           <div className="reviews">
             <div>
               <Rating
@@ -99,7 +100,7 @@ const ProductDetails = ({ product, products }) => {
           <p className="price">${price}</p>
           <div className="quantity">
             <p>Cantidad</p>
-            <div className="flex justify-around  ">
+            <div className="flex justify-around ml-32 sm:ml-0 md:ml-0 lg:ml-0 ">
               <ButtonGroup
                 variant="outlined"
                 color="error"
@@ -124,12 +125,12 @@ const ProductDetails = ({ product, products }) => {
               </ButtonGroup>
             </div>
           </div>
-          <div className="flex mt-10 space-x-4">
+          <div className="flex mt-10 space-x-12 lg:space-x-4">
             <Button
               variant="outlined"
               color="error"
               onClick={() => onAdd(product, qty)}
-              className="lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
+              className="lg:hover:shadow-xl  transition duration-300 ease-in-out"
             >
               Añadir al Carrito
             </Button>
@@ -137,34 +138,31 @@ const ProductDetails = ({ product, products }) => {
               variant="contained"
               color="error"
               onClick={handleBuyNow}
-              className="bg-red-600 lg:hover:shadow-xl lg:hover:-translate-y-2 lg:hover:scale-105 transition duration-300 ease-in-out"
+              className="bg-red-600 lg:hover:shadow-xl  transition duration-300 ease-in-out"
             >
               Comprar ya
             </Button>
           </div>
         </div>
       </section>
-      <div>
-        <Container maxWidth="xl">
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <h4>Detalles</h4>
-            </AccordionSummary>
-            <AccordionDetails>
-              {Details?.map((detail, i) => (
-                <li key={i}>
-                  <b>{detail.substr(0, detail.indexOf(":") + 1)}</b>
-                  {detail.substr(detail.indexOf(":") + 1)}
-                </li>
-              ))}
-            </AccordionDetails>
-          </Accordion>
-        </Container>
-      </div>
+      <Accordion className="mx-2 mt-8 lg:mx-8 ">
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <h4>Detalles</h4>
+        </AccordionSummary>
+        <AccordionDetails>
+          {Details?.map((detail, i) => (
+            <li key={i}>
+              <b>{detail.substr(0, detail.indexOf(":") + 1)}</b>
+              {detail.substr(detail.indexOf(":") + 1)}
+            </li>
+          ))}
+        </AccordionDetails>
+      </Accordion>
+
       <section className="maylike-products-wrapper">
         <h2>Productos que te pueden interesar</h2>
         <div className="">
