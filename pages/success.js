@@ -17,7 +17,7 @@ const Success = () => {
   }, []);
 
   return (
-    <div className="success-wrapper">
+    <div className=" mx-8 justify-center flex ">
       <div className="success">
         <p className="icon">
           <BsBagCheckFill />
@@ -31,7 +31,7 @@ const Success = () => {
           </a>
         </p>
         <Link href="/">
-          <button className="mt-10 inline-block rounded-md border border-transparent bg-red-600 py-3 px-24 lg:px-8 md:px-8 text-center font-medium text-white hover:bg-red-700 lg:hover:shadow-xl lg:hover:-translate-y-2 transition duration-300 ease-in-out">
+          <button className="mt-10 inline-block rounded-md border border-transparent bg-red-600 py-3 px-24 lg:px-8 md:px-8 text-center text-xs lg:text-sm  font-medium text-white hover:bg-red-700 lg:hover:shadow-xl lg:hover:-translate-y-2 transition duration-300 ease-in-out">
             Continuar Comprando
           </button>
         </Link>
