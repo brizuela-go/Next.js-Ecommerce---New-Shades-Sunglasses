@@ -35,7 +35,7 @@ const BetterCart = () => {
 
     const data = await response.json();
 
-    toast.loading("Redirecting...");
+    toast.loading("Redireccionando...");
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
@@ -218,7 +218,7 @@ const BetterCart = () => {
                             }}
                             amount={(totalPrice + 50) / 20}
                             onSuccess={(details, data) => {
-                              toast.success("Payment successful");
+                              toast.success("Pago realizado con éxito");
                               // redirect to success page next js route
                               router.push("/success");
                               setShowCart(false);
