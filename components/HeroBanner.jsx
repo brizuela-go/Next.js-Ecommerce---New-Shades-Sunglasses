@@ -37,11 +37,11 @@ const HeroBanner = ({ heroBanner }) => {
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="lg:flex items-center sm:space-x-0 lg:space-x-8">
                     <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-96 overflow-hidden rounded-lg lg:ml-20 shadow-xl lmao">
+                      <div className="overflow-hidden rounded-sm lg:ml-20 shadow-xl lmao">
                         <img
                           src="https://s.alicdn.com/@sc04/kf/H8a22eb6385f842cca929b1435290824fQ.jpg_960x960.jpg"
                           alt="New Shades"
-                          className="h-full w-full object-cover object-center"
+                          className="object-cover object-center"
                         />
                       </div>
                     </div>
@@ -49,7 +49,7 @@ const HeroBanner = ({ heroBanner }) => {
                 </div>
               </div>
               <div className="inline lg:hidden md:hidden">
-                <div className="h-80 w-80 overflow-hidden rounded-lg shadow-xl">
+                <div className="h-80 w-80 overflow-hidden rounded-sm shadow-xl">
                   <img
                     src="https://s.alicdn.com/@sc04/kf/H8a22eb6385f842cca929b1435290824fQ.jpg_960x960.jpg"
                     alt="New Shades"
