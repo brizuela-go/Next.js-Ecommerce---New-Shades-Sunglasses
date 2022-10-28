@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         payment_method_types: ["card", "oxxo"],
         billing_address_collection: "auto",
         shipping_address_collection: {
-          allowed_countries: ["MX", "US"],
+          allowed_countries: ["MX"],
         },
         shipping_options: [{ shipping_rate: "shr_1LuUknBaeFWL29Y7adw5pNrE" }],
         line_items: req.body.map((item) => {
@@ -19,9 +19,9 @@ export default async function handler(req, res) {
           const newImage = img
             .replace(
               "image-",
-              "https://cdn.sanity.io/images/vfxfwnaw/production/"
+              "https://cdn.sanity.io/images/w0zrwraf/production/"
             )
-            .replace("-webp", ".webp");
+            .replace("-png", ".png");
 
           return {
             price_data: {
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
           };
         }),
         success_url: `${req.headers.origin}/success`,
-        cancel_url: `${req.headers.origin}/canceled`,
+        cancel_url: `${req.headers.origin}/`,
       };
 
       // Create Checkout Sessions from body params.

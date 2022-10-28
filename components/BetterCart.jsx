@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
 import Link from "next/link";
+import TrashIcon from "@heroicons/react/24/outline";
 
 import { useRouter } from "next/router";
 
@@ -161,12 +162,14 @@ const BetterCart = () => {
                                         <Link href={`/product/${product.slug}`}>
                                           <h3>{product.name}</h3>
                                         </Link>
-                                        <p className="ml-4">{product.price}</p>
+                                        <p className="ml-4">
+                                          $ {product.price}
+                                        </p>
                                       </div>
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
                                       <p className="text-gray-500">
-                                        Qty {product.quantity}
+                                        Cantidad: {product.quantity}
                                       </p>
 
                                       <div className="flex">
@@ -175,7 +178,7 @@ const BetterCart = () => {
                                           className="font-medium text-red-600 hover:text-red-500"
                                           onClick={() => onRemove(product)}
                                         >
-                                          Remove
+                                          Eliminar
                                         </button>
                                       </div>
                                     </div>
