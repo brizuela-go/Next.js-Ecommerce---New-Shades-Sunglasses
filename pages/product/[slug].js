@@ -100,7 +100,7 @@ const ProductDetails = ({ product, products }) => {
           <p className="price">${price}</p>
           <div className="quantity">
             <p>Cantidad</p>
-            <div className="flex justify-around ml-32 sm:ml-0 md:ml-0 lg:ml-0 ">
+            <div className="flex justify-around ml-8 mt-1 sm:ml-0 md:ml-0 lg:ml-0 ">
               <ButtonGroup
                 variant="outlined"
                 color="error"
@@ -125,7 +125,7 @@ const ProductDetails = ({ product, products }) => {
               </ButtonGroup>
             </div>
           </div>
-          <div className="flex mt-10 space-x-12 lg:space-x-4">
+          <div className="flex mt-10 space-x-6 lg:space-x-4">
             <Button
               variant="outlined"
               color="error"
@@ -145,7 +145,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
       </section>
-      <Accordion className="mx-2 mt-8 lg:mx-8 ">
+      <Accordion className="mx-2 mt-8 lg:mx-8 broski">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
