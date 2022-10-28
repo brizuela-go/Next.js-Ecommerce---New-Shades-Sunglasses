@@ -75,6 +75,7 @@ const ProductDetails = ({ product, products }) => {
                     : "small-image shadow-lg"
                 }
                 onMouseEnter={() => setIndex(i)}
+                onClick={() => setIndex(i)}
               ></img>
             ))}
           </div>
