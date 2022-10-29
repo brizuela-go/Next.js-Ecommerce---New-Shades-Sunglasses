@@ -162,9 +162,7 @@ const BetterCart = () => {
                                         <Link href={`/product/${product.slug}`}>
                                           <h3>{product.name}</h3>
                                         </Link>
-                                        <p className="ml-4">
-                                          $ {product.price}
-                                        </p>
+                                        <p className="ml-4">${product.price}</p>
                                       </div>
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
